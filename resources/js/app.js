@@ -1,7 +1,6 @@
 import { Livewire, Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
 
 // AlpineJS Plugins
-import persist from "@alpinejs/persist"; // @see https://alpinejs.dev/plugins/persist
 import collapse from "@alpinejs/collapse"; // @see https://alpinejs.dev/plugins/collapse
 import intersect from "@alpinejs/intersect"; // @see https://alpinejs.dev/plugins/intersect
 
@@ -110,7 +109,6 @@ window.Alpine = Alpine;
 window.helpers = helpers;
 window.pages = pages;
 
-Alpine.plugin(persist);
 Alpine.plugin(collapse);
 Alpine.plugin(intersect);
 
@@ -125,3 +123,5 @@ Alpine.store("global", store());
 
 Alpine.data("usePopper", usePopper);
 Alpine.data("accordionItem", accordionItem);
+
+Livewire.start();

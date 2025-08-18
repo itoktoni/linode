@@ -1,42 +1,47 @@
 export default () => ({
-  isDarkModeEnabled: Alpine.$persist(false).as("_x_darkMode_on"),
   isMonochromeModeEnabled: false,
   isSearchbarActive: false,
-  isSidebarExpanded: false,
+  isSidebarExpanded: true,
   isRightSidebarExpanded: false,
 
   init() {
-    this.isSidebarExpanded =
-      document.querySelector(".sidebar") &&
-      document.body.classList.contains("is-sidebar-open") &&
-      Alpine.store("breakpoints").xlAndUp;
 
-    Alpine.effect(() => {
-      this.isDarkModeEnabled
-        ? document.documentElement.classList.add("dark")
-        : document.documentElement.classList.remove("dark");
+    if(window.innerWidth >= 1300)
+    {
+       document.body.classList.add("is-sidebar-open");
+    }
+
+    const open = document.querySelector('#menu-toggle-open');
+    if (open) {
+      open.addEventListener('click', function(event) {
+        document.body.classList.add("is-sidebar-open");
+      });
+    }
+
+    const close = document.querySelector('#menu-toggle-close');
+    if (close) {
+      close.addEventListener('click', function(event) {
+        document.body.classList.remove("is-sidebar-open");
+      });
+    }
+
+    window.addEventListener('livewire:navigated', () => {
+
+      const open = document.querySelector('#menu-toggle-open');
+      if (open) {
+        open.addEventListener('click', function(event) {
+          document.body.classList.add("is-sidebar-open");
+        });
+      }
+
+      const close = document.querySelector('#menu-toggle-close');
+      if (close) {
+        close.addEventListener('click', function(event) {
+          document.body.classList.remove("is-sidebar-open");
+        });
+      }
+
     });
-
-    Alpine.effect(() => {
-      this.isMonochromeModeEnabled
-        ? document.body.classList.add("is-monochrome")
-        : document.body.classList.remove("is-monochrome");
-    });
-
-    Alpine.effect(() => {
-      this.isSidebarExpanded
-        ? document.body.classList.add("is-sidebar-open")
-        : document.body.classList.remove("is-sidebar-open");
-    });
-
-    Alpine.effect(() => {
-      if (Alpine.store("breakpoints").smAndUp) this.isSearchbarActive = false;
-    });
-
-    window.addEventListener('changed:breakpoint', () => {
-      if (this.isSidebarExpanded) this.isSidebarExpanded = false;
-      if (this.isRightSidebarExpanded) this.isRightSidebarExpanded = false;
-    })
   },
 
   documentBody: {
