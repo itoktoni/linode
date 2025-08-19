@@ -23,7 +23,6 @@ class User extends Component
         return [
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required',
         ];
     }
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\UserController;
 use App\Livewire\Test;
 use App\Livewire\User;
+use App\Livewire\UserDetail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [PagesController::class, 'dashboardsCrmAnalytics'])->name('index');
 
     Route::get('user', User::class)->name('user');
-    Route::get('test', Test::class)->name('test');
+    Route::get('user/{id}', UserDetail::class)->name('detail');
 
     Route::get('/elements/avatar', [PagesController::class, 'elementsAvatar'])->name('elements/avatar');
     Route::get('/elements/alert', [PagesController::class, 'elementsAlert'])->name('elements/alert');

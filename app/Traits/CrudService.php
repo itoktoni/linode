@@ -35,4 +35,30 @@ trait CrudService
 
         return $check;
     }
+
+    public function update(Model $model, $data)
+    {
+        $check = $model->updateRepository($data, $model->id);
+
+        if($check['status'])
+        {
+            $this->notification()->send([
+                'icon' => AlertType::SUCCESS,
+                'title' => 'Info Notification!',
+                'description' => $check['message'],
+            ]);
+
+            $this->reset();
+        }
+        else
+        {
+            $this->notification()->send([
+                'icon' => AlertType::ERROR,
+                'title' => 'Info Notification!',
+                'description' => $check['message'],
+            ]);
+        }
+
+        return $check;
+    }
 }
