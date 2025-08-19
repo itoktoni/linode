@@ -18,6 +18,7 @@
      @livewireStyles
 
     <!-- CSS & JS Assets -->
+    @wireUiScripts
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Fonts -->
@@ -61,6 +62,8 @@
         </main>
 
     </div>
+
+     <x:notif />
 
     <div id="x-teleport-target"></div>
 

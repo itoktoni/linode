@@ -1,6 +1,8 @@
 <div class="card mx-4">
     <form wire:submit="save">
 
+        <x-errors />
+
         <div class="border-b border-slate-200 p-4 dark:border-navy-500 sm:px-5">
             <h2 class="font-medium tracking-wide text-slate-700 line-clamp-1 dark:text-navy-100 lg:text-base">
                 Menu List Example 1
@@ -13,7 +15,7 @@
             <x-input label="Password" type="password" wire:model="password" name="password" placeholder="your name" corner="Ex: John" />
 
             <x-footer>
-                <x-button label="Submit" type="submit" class="w-auto sm:w-auto" />
+                <x-href label="Primary" color="danger" href="{{ route('apps/list') }}" />
                 <x-button label="Submit" type="submit" class="w-auto sm:w-auto" />
             </x-footer>
 

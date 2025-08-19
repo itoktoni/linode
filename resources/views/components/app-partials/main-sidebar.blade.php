@@ -7,12 +7,18 @@
         <div class="is-scrollbar-hidden flex grow flex-col space-y-3 overflow-y-auto pt-3">
             <!-- Dashobards -->
             <a wire:navigate href="{{ route('apps/list') }}"
-                class="px-2 py-3 grid grid-rows-1 items-center border-2 justify-items-center rounded-lg outline-hidden transition-colors duration-200 {{ $routePrefix === 'dashboards' ? 'text-primary hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:bg-navy-600 bg-primary/10 dark:text-accent-light dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90' : 'hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25' }}">
+                class="menu-group px-2 py-3 grid grid-rows-1 items-center border-2 justify-items-center rounded-lg outline-hidden transition-colors duration-200 {{ $routePrefix === 'dashboards' ? 'text-primary hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:bg-navy-600 bg-primary/10 dark:text-accent-light dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90' : 'hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25' }}">
                <x-icon name="home" class="w-5 h-5" />
                <span class="text-xs mt-1 text-dark">Home</span>
             </a>
 
             <a wire:navigate href="{{ route('user') }}"
+                class="menu-group px-2 py-3 grid grid-rows-1 items-center border-2 justify-items-center rounded-lg outline-hidden transition-colors duration-200 {{ $routePrefix === 'dashboards' ? 'text-primary hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:bg-navy-600 bg-primary/10 dark:text-accent-light dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90' : 'hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25' }}">
+               <x-icon name="user" class="w-5 h-5" />
+               <span class="text-xs mt-1 text-dark">User</span>
+            </a>
+
+             <a href="{{ route('user') }}"
                 class="px-2 py-3 grid grid-rows-1 items-center border-2 justify-items-center rounded-lg outline-hidden transition-colors duration-200 {{ $routePrefix === 'dashboards' ? 'text-primary hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:bg-navy-600 bg-primary/10 dark:text-accent-light dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90' : 'hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25' }}">
                <x-icon name="user" class="w-5 h-5" />
                <span class="text-xs mt-1 text-dark">User</span>
