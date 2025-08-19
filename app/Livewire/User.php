@@ -19,6 +19,12 @@ class User extends Component
         ];
     }
 
+    public function mount()
+    {
+        $this->name = auth()->user()->name;
+        $this->email = auth()->user()->email;
+    }
+
     public function save()
     {
         dd($this->validate());

@@ -12,7 +12,10 @@
             <x-input label="Email" type="email" wire:model="email" name="email" placeholder="your name" corner="Ex: John" />
             <x-input label="Password" type="password" wire:model="password" name="password" placeholder="your name" corner="Ex: John" />
 
-            <x-button label="Submit" corner="Ex: John" type="submit" class="w-full sm:w-auto" />
+            <x-footer>
+                <x-button label="Submit" type="submit" class="w-auto sm:w-auto" />
+                <x-button label="Submit" type="submit" class="w-auto sm:w-auto" />
+            </x-footer>
 
         </div>
 
