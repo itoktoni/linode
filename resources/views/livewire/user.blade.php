@@ -5,7 +5,7 @@
 
         <div class="border-b border-slate-200 p-4 dark:border-navy-500 sm:px-5">
             <h2 class="font-medium tracking-wide text-slate-700 line-clamp-1 dark:text-navy-100 lg:text-base">
-                Menu List Example 1
+                Form {{ getClass($model) ?? '' }}
             </h2>
         </div>
         <div class="p-4 sm:px-5 w-full grid lg:grid-cols-2 gap-4 sm:grid-cols-2 sm:gap-5">

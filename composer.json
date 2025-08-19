@@ -33,11 +33,11 @@
             "Plugins\\": "app/plugins/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Plugins/Global.php"
+        ]
     },
-    "files": [
-        "plugins/Global.php"
-    ],
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"

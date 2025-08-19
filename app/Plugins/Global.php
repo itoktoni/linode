@@ -2,6 +2,16 @@
 
 use Illuminate\Support\Carbon;
 
+function getClass($class)
+{
+    return (new \ReflectionClass($class))->getShortName();
+}
+
+function getLowerClass($class)
+{
+    return strtolower(getClass($class));
+}
+
 function formatDate($value, $datetime = false)
 {
     if ($datetime === false) {

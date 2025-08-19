@@ -2,16 +2,15 @@
 
 namespace App\Livewire;
 
-use App\Actions\CreateAction;
-use App\Actions\CreateUser;
-use App\Models\User as ModelsUser;
+use App\Models\User as Models;
 use Livewire\Component;
 use App\Plugins\Response;
+use App\Traits\CrudService;
 use WireUi\Traits\WireUiActions;
 
 class User extends Component
 {
-    use Response, WireUiActions;
+    use Response, WireUiActions, CrudService;
 
     public $name;
     public $email;
@@ -28,34 +27,13 @@ class User extends Component
         ];
     }
 
-    public function mount(ModelsUser $model)
+    public function mount(Models $model)
     {
         $this->model = $model;
     }
 
     public function save()
     {
-        $check = $this->model->saveRepository($this->validate());
-        if($check['status'])
-        {
-            $this->notification()->send([
-                'icon' => 'success',
-                'title' => 'Info Notification!',
-                'description' => $check['message'],
-            ]);
-        }
-        else
-        {
-            $this->notification()->send([
-                'icon' => 'error',
-                'title' => 'Info Notification!',
-                'description' => $check['message'],
-            ]);
-        }
-    }
-
-    public function render()
-    {
-        return view('livewire.user');
+       $this->create($this->model, $this->validate());
     }
 }
